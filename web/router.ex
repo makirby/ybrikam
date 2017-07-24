@@ -17,10 +17,12 @@ defmodule Ybrikam.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/hello", HelloController, :index
+    get "/hello/:messenger", HelloController, :show
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Ybrikam do
-  #   pipe_through :api
-  # end
+  scope "/api", Ybrikam do
+    pipe_through :api
+  end
 end
